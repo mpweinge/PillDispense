@@ -25,7 +25,7 @@ if (isset($_GET['login']))
         $err[] = 'All the fields must be filled in!';
     else
     {
-    	$con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $TableName);
+    	$con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $UserTableName);
     	$_POST['username'] = mysql_real_escape_string($_POST['username']);
         $_POST['password'] = mysql_real_escape_string($_POST['password']);
 
@@ -74,7 +74,7 @@ else if (isset($_GET['Register']))
 
     //Check to see if username exists
     $_POST['username'] = mysql_real_escape_string($_POST['username']);
-    $con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $TableName);
+    $con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $UserTableName);
 
     $query = "SELECT * FROM Users WHERE username='{$_POST['username']}'";
     $row = mysqli_fetch_assoc(mysqli_query($con, $query));

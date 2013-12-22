@@ -1,0 +1,7 @@
+CREATE TABLE Pills{
+	varchar(255) name NOT NULL,
+	INT id NOT NULL AUTO_INCREMENT,
+	INT numLeft,
+	PRIMARY KEY (id),
+	PRIMARY KEY (name),
+}

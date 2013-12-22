@@ -1,7 +1,7 @@
 function Login(username, password)
   {
     $.ajax({
-              type: "POST",
+              type: "GET",
               url: "UserLoginBridge.php",
               data:{Login:"True", username: username, password: password},
               success: function(msg)
@@ -18,7 +18,7 @@ function Login(username, password)
   function Register(username, password)
   {
     $.ajax({
-              type: "POST",
+              type: "GET",
               url: "UserLoginBridge.php",
               data:{Register:"True", username: username, password: password},
               success: function(msg)
