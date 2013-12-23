@@ -3,6 +3,7 @@
 
 <script src="jquery-2.0.3.min.js"></script>
 <script src="Login.js"></script>
+<script src="Inventory.js"></script>
 <script src="HomePage.js"></script>
 
 
@@ -26,7 +27,24 @@
 	<input type="text" value="" style="width:200px; " id="PasswordTxt"></input>
 	
 	<button id="GoButton" onclick="javascript:GoClicked();">Go</button>
+	</br></br>
+</div>
 
+<div id="PillButtons">
+	<p style="display:inline;" id="PillNameLabel">PillName</p>
+	<input type="text" value="" style="width:200px;" id="PillNameTxt"></input>
+	
+	</br>
+	
+	<p style="display:inline; " id="NumLeftLabel">Number of Pill Left </p>
+	<input type="text" value="" style="width:200px; " id="NumLeftTxt"></input>
+	
+	</br>
+	
+	<button id="RegisterPillButton" onclick="javascript:RegisterPillClicked();">Register Pill</button>
+	<button id="GetAllInventoryButton" onclick="javascript:GetAllInventory();">Get All Inventory</button>
+	<button id="GetInventoryButton" onclick="javascript:GetPillInventory();">Get Pill Inventory</button>
+	<button id="UpdateInventoryButton" onclick="javascript:UpdatePillInventory();">Update Pill Inventory</button>
 </div>
 <p>
 	Todo: Check to see if user is logged in (check cookies) --> done

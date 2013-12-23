@@ -1,9 +1,9 @@
-function RegisterPill(id, name)
+function RegisterPill(name, numLeft)
 {
   $.ajax({
             type: "GET",
             url: "PillInventoryBridge.php",
-            data:{registerPill:"True", id: id, name: name},
+            data:{RegisterPill:"True", name: name, numLeft: numLeft},
             success: function(msg)
             {
               alert(msg);
@@ -15,7 +15,7 @@ function RegisterPill(id, name)
            });
 }
 
-function GetInventory(name)
+function GetInventoryBridge(name)
 {
   $.ajax({
             type: "GET",
@@ -32,12 +32,30 @@ function GetInventory(name)
            });
 }
 
-function UpdateInventory(name, numLeft)
+function GetAllInventoryBridge()
 {
   $.ajax({
             type: "GET",
             url: "PillInventoryBridge.php",
-            data:{GetInventory:"True", name: name, numLeft: numLeft},
+            data:{GetAllInventory:"True"},
+            success: function(msg)
+            {
+              alert(msg);
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+              alert("failed" + jqXHR + textStatus + errorThrown);
+            }
+           });
+}
+
+function UpdateInventory(name, numLeft)
+{
+  alert(name + numLeft);
+   $.ajax({
+            type: "GET",
+            url: "PillInventoryBridge.php",
+            data:{UpdateInventory:"True", name: name, numLeft: numLeft},
             success: function(msg)
             {
               alert(msg);

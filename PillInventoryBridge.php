@@ -1,33 +1,61 @@
 <?php
 
 header("Content-Type: text/plain");
+header("Access-Control-Allow-Origin: *");
 
-require_once 'DatabasePasswords.php';
+include 'DatabasePasswords.php';
 
-if (isset($_GET['registerPill']))
+if (isset($_GET['RegisterPill']))
 {
 	$err = array();
 
-	if (!$_POST['numLeft'] || !$_POST['id'] || !$_POST['name'])
+	if (!$_GET['numLeft'] || !$_GET['name'])
 		$err[] = 'All the fields must be filled in!';
 	else
 	{
-		$con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $PillTableName);
-    	
-		$query = "INSERT INTO " . $PillTableName . "(id, name, numLeft) 
+		$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+
+		$query = "SELECT * FROM " . $PillTableName . " WHERE name='{$_GET['name']}'";
+
+		$row = mysqli_fetch_assoc(mysqli_query($con, $query));
+
+	    if ($row['name'])
+	    {
+	        $err[] = 'Pill already exists';
+	    }
+	    else if(!count($err))
+    	{
+			$query = "INSERT INTO " . $PillTableName . "(name, numLeft) 
 			VALUES(
-                    '".$_POST['id']."',
-                    '".$_POST['name']."',
-                    '".$_POST['numLeft']."'
+                    '".$_GET['name']."',
+                    '".$_GET['numLeft']."'
                     )";
 
-		mysqli_query($con, $query);
+			echo $query;
+
+			mysqli_query($con, $query);
+		}
+	}
+	if (count($err))
+	{
+		print_r($err);
 	}
 }
-else if (isset($_GET['getInventory']))
+else if (isset($_GET['GetInventory']))
 {
-	$con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $PillTableName);
-    	
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+	
+	$query = "SELECT * FROM " . $PillTableName . " WHERE name='{$_GET['name']}'";
+
+	mysqli_query($con, $query); 
+	$results = mysqli_query($con, $query);
+
+	echo print_r(mysqli_fetch_assoc($results));
+}
+else if (isset($_GET['GetAllInventory']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+	
 	$query = "SELECT * FROM " . $PillTableName;
 
 	mysqli_query($con, $query); 
@@ -45,11 +73,11 @@ else if (isset($_GET['getInventory']))
 }
 else if (isset($_GET['UpdateInventory']))
 {
-	$con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $PillTableName);
-    
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+
     $name = $_GET['name'];
     $numLeft = $_GET['numLeft'];
 
-    $query = "UPDATE " . $PillTableName . " SET numLeft = " . $numLeft . " WHERE name=" . $name;
+    $query = "UPDATE " . $PillTableName . " SET numLeft='{$_GET['numLeft']}' WHERE name='{$_GET['name']}'";
     mysqli_query($con, $query); 
 }

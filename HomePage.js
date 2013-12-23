@@ -99,6 +99,26 @@ function GoClicked()
 	}
 }
 
+function RegisterPillClicked()
+{
+  RegisterPill(document.getElementById('PillNameTxt').value, document.getElementById('NumLeftTxt').value);
+}
+
+function GetPillInventory()
+{
+  GetInventoryBridge(document.getElementById('PillNameTxt').value);
+}
+
+function GetAllInventory()
+{
+  GetAllInventoryBridge();
+}
+
+function UpdatePillInventory()
+{
+  UpdateInventory(document.getElementById('PillNameTxt').value, document.getElementById('NumLeftTxt').value);
+}
+
 function getCookie(cname)
 {
   var name = cname + "=";
