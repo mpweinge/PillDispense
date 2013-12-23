@@ -1,11 +1,44 @@
 <html>
 <body>
+
+<script src="jquery-2.0.3.min.js"></script>
+<script src="Login.js"></script>
+<script src="HomePage.js"></script>
+
+
+<div id = "LoginButtons">
+	<button id="LoginButton" onclick ="javascript:showLoginInputs(event);">Login?</button>
+	<button id="RegisterButton" onclick="javascript:showRegisterInputs(event);">Register?</button>
+</div>
+
+<div id="LoginText">
+	<p style="display:inline;" id="NameLabel">Name</p>
+	<input type="text" value="" style="width:200px;" id="NameTxt"></input>
+	
+	</br>
+	
+	<p style="display:inline; " id="UsernameLabel">Username </p>
+	<input type="text" value="" style="width:200px; " id="UsernameTxt"></input>
+	
+	</br>
+	
+	<p style="display:inline; " id="PasswordLabel">Password </p>
+	<input type="text" value="" style="width:200px; " id="PasswordTxt"></input>
+	
+	<button id="GoButton" onclick="javascript:GoClicked();">Go</button>
+
+</div>
 <p>
-	Todo: Check to see if user is logged in (check cookies)
-	Todo: If logged in, display "Welcome username message"
-	Todo: If not logged in, display prompt to log in 
+	Todo: Check to see if user is logged in (check cookies) --> done
+</br>
+	Todo: If logged in, display "Welcome username message" --> done
+</br>
+	Todo: If not logged in, display prompt to log in --> done
+</br>
 	Todo: Welcome screen with header to select tingz to do
+</br>
 	Todo: Display pill inventories
+</br>
 	Todo: Learn R
 </p>
 </body>

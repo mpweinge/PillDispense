@@ -1,6 +1,6 @@
-CREATE TABLE Users{
-   varchar(255) username NOT NULL,
-   varchar(255) password NOTNULL,
-   INT id NOT NULL AUTO_INCREMENT,
-   PRIMARY KEY (id),
-}
+CREATE TABLE Users(
+   username varchar(255) NOT NULL,
+   password varchar(255) NOT NULL,
+   id int NOT NULL AUTO_INCREMENT,
+   PRIMARY KEY (id)
+);

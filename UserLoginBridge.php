@@ -1,8 +1,9 @@
 <?php
 
 header("Content-Type: text/plain");
+header("Access-Control-Allow-Origin: *");
 
-require_once 'DatabasePasswords.php';
+include 'DatabasePasswords.php';
 
 session_name('LoginSession');
 
@@ -17,33 +18,38 @@ if (isset($_GET['logoff']))
 	exit;
 }
 
-if (isset($_GET['login']))
+if (isset($_GET['Login']))
 {
 	$err = array();
 
-	 if(!$_POST['username'] || !$_POST['password'])
+	 if(!$_GET['username'] || !$_GET['password'])
         $err[] = 'All the fields must be filled in!';
     else
     {
-    	$con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $UserTableName);
-    	$_POST['username'] = mysql_real_escape_string($_POST['username']);
-        $_POST['password'] = mysql_real_escape_string($_POST['password']);
+    	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+        $_GET['username'] = mysql_real_escape_string($_GET['username']);
+        $_GET['password'] = mysql_real_escape_string($_GET['password']);
 
         // Escaping all input data
-        $query = "SELECT id,username FROM Users WHERE usr='{$_POST['username']}' AND pass='".md5($_POST['password'])."'";
+        $query = "SELECT id,username FROM Users WHERE username='{$_GET['username']}' AND password='".md5($_GET['password'])."'";
         
         $row = mysqli_fetch_assoc(mysqli_query($con, $query));
 
-        if ($row['usr'])
+        if ($row['username'])
         {
         	$_SESSION['usr'] = $row['username'];
             $_SESSION['id'] = $row['id'];
 
             // Store login data in cookie
             $LoginData = array();
-            $LoginData['username'] = $_POST['username'];
-            $LoginData['password'] = $_POST['password'];
-            setcookie('loginCookie', serialize($LoginData));
+            $LoginData['username'] = $_GET['username'];
+            $LoginData['password'] = $_GET['password'];
+
+            $LoginData = json_encode($LoginData);
+
+            print_r($LoginData);
+
+            setcookie('loginCookie', $LoginData);
         }
         else $err[]='Wrong username and/or password!';
 	}
@@ -62,39 +68,41 @@ else if (isset($_GET['Register']))
 	// If the Register form has been submitted
     $err = array();
 
-    if(strlen($_POST['username'])<7 || strlen($_POST['username'])>32)
+    if(strlen($_GET['username'])<7 || strlen($_GET['username'])>32)
     {
         $err[]='Your username must be between 6 and 32 characters!';
     }
 
-    if(preg_match('/[^a-z0-9\-\_\.]+/i',$_POST['username']))
+    if(preg_match('/[^a-z0-9\-\_\.]+/i',$_GET['username']))
     {
         $err[]='Your username contains invalid characters!';
     }
 
-    //Check to see if username exists
-    $_POST['username'] = mysql_real_escape_string($_POST['username']);
-    $con = mysqli_connect($DatabaseAddress, $DatabaseID, $DatabasePassword, $UserTableName);
+    $con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
 
-    $query = "SELECT * FROM Users WHERE username='{$_POST['username']}'";
+    //Check to see if username exists
+    $Username = mysqli_real_escape_string($con, $_GET['username']);
+
+    $query = "SELECT * FROM Users WHERE username='{$_GET['username']}'";
     $row = mysqli_fetch_assoc(mysqli_query($con, $query));
 
-    if ($row['usr'])
+    if ($row['username'])
     {
         $err[] = 'Username already exists';
     }
     else if(!count($err))
     {
         // If there are no errors
-        $pass = substr(md5($_SERVER['REMOTE_ADDR'].microtime().rand(1,100000)),0,6);
-        // Generate a random password
+        $pass = md5($_GET['password']);
+
+        $query = "   INSERT INTO Users(username,password)
+                    VALUES(
+                    '" . $Username . "',
+                    '". $pass ."'
+        )";
 
         // Escape the input data
-        mysqli_query($con, "   INSERT INTO Username(username,password)
-                    VALUES(
-                    '".$_POST['username']."',
-                    '".md5($pass)."'
-        )");
+        mysqli_query($con, $query);
     }
 
     if(count($err))
