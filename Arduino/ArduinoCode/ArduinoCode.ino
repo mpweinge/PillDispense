@@ -2,6 +2,9 @@
 #include <YunServer.h>
 #include <YunClient.h>
 
+//For help see http://scuola.arduino.cc/courses/lessons/view/zzdeJ3m
+//And http://arduino.cc/en/Tutorial/Bridge
+
 YunServer server;
 String msg;
 

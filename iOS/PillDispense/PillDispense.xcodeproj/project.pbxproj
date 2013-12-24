@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A62AF5A81869542D00B46876 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5A71869542D00B46876 /* UIKit.framework */; };
+		A62AF5AA1869542D00B46876 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5A91869542D00B46876 /* Foundation.framework */; };
+		A62AF5AC1869542D00B46876 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5AB1869542D00B46876 /* CoreGraphics.framework */; };
+		A62AF5B21869542D00B46876 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5B01869542D00B46876 /* InfoPlist.strings */; };
+		A62AF5B41869542D00B46876 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A62AF5B31869542D00B46876 /* main.m */; };
+		A62AF5B81869542D00B46876 /* TTWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A62AF5B71869542D00B46876 /* TTWAppDelegate.m */; };
+		A62AF5BA1869542D00B46876 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5B91869542D00B46876 /* Default.png */; };
+		A62AF5BC1869542D00B46876 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5BB1869542D00B46876 /* Default@2x.png */; };
+		A62AF5BE1869542D00B46876 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5BD1869542D00B46876 /* Default-568h@2x.png */; };
+		A62AF5C11869542D00B46876 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5BF1869542D00B46876 /* MainStoryboard_iPhone.storyboard */; };
+		A62AF5C41869542D00B46876 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5C21869542D00B46876 /* MainStoryboard_iPad.storyboard */; };
+		A62AF5C71869542D00B46876 /* TTWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A62AF5C61869542D00B46876 /* TTWViewController.m */; };
+		A62AF5CF1869542D00B46876 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5CE1869542D00B46876 /* SenTestingKit.framework */; };
+		A62AF5D01869542D00B46876 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5A71869542D00B46876 /* UIKit.framework */; };
+		A62AF5D11869542D00B46876 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5A91869542D00B46876 /* Foundation.framework */; };
+		A62AF5D91869542D00B46876 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5D71869542D00B46876 /* InfoPlist.strings */; };
+		A62AF5DC1869542D00B46876 /* PillDispenseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A62AF5DB1869542D00B46876 /* PillDispenseTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A62AF5D21869542D00B46876 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A62AF59C1869542D00B46876 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A62AF5A31869542D00B46876;
+			remoteInfo = PillDispense;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A62AF5A41869542D00B46876 /* PillDispense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PillDispense.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62AF5A71869542D00B46876 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A62AF5A91869542D00B46876 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A62AF5AB1869542D00B46876 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A62AF5AF1869542D00B46876 /* PillDispense-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PillDispense-Info.plist"; sourceTree = "<group>"; };
+		A62AF5B11869542D00B46876 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A62AF5B31869542D00B46876 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A62AF5B51869542D00B46876 /* PillDispense-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PillDispense-Prefix.pch"; sourceTree = "<group>"; };
+		A62AF5B61869542D00B46876 /* TTWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTWAppDelegate.h; sourceTree = "<group>"; };
+		A62AF5B71869542D00B46876 /* TTWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTWAppDelegate.m; sourceTree = "<group>"; };
+		A62AF5B91869542D00B46876 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A62AF5BB1869542D00B46876 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A62AF5BD1869542D00B46876 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A62AF5C01869542D00B46876 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		A62AF5C31869542D00B46876 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		A62AF5C51869542D00B46876 /* TTWViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTWViewController.h; sourceTree = "<group>"; };
+		A62AF5C61869542D00B46876 /* TTWViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTWViewController.m; sourceTree = "<group>"; };
+		A62AF5CD1869542D00B46876 /* PillDispenseTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PillDispenseTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A62AF5CE1869542D00B46876 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A62AF5D61869542D00B46876 /* PillDispenseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PillDispenseTests-Info.plist"; sourceTree = "<group>"; };
+		A62AF5D81869542D00B46876 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A62AF5DA1869542D00B46876 /* PillDispenseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PillDispenseTests.h; sourceTree = "<group>"; };
+		A62AF5DB1869542D00B46876 /* PillDispenseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PillDispenseTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A62AF5A11869542D00B46876 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62AF5A81869542D00B46876 /* UIKit.framework in Frameworks */,
+				A62AF5AA1869542D00B46876 /* Foundation.framework in Frameworks */,
+				A62AF5AC1869542D00B46876 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A62AF5C91869542D00B46876 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62AF5CF1869542D00B46876 /* SenTestingKit.framework in Frameworks */,
+				A62AF5D01869542D00B46876 /* UIKit.framework in Frameworks */,
+				A62AF5D11869542D00B46876 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A62AF59B1869542D00B46876 = {
+			isa = PBXGroup;
+			children = (
+				A62AF5AD1869542D00B46876 /* PillDispense */,
+				A62AF5D41869542D00B46876 /* PillDispenseTests */,
+				A62AF5A61869542D00B46876 /* Frameworks */,
+				A62AF5A51869542D00B46876 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A62AF5A51869542D00B46876 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A62AF5A41869542D00B46876 /* PillDispense.app */,
+				A62AF5CD1869542D00B46876 /* PillDispenseTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A62AF5A61869542D00B46876 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A62AF5A71869542D00B46876 /* UIKit.framework */,
+				A62AF5A91869542D00B46876 /* Foundation.framework */,
+				A62AF5AB1869542D00B46876 /* CoreGraphics.framework */,
+				A62AF5CE1869542D00B46876 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A62AF5AD1869542D00B46876 /* PillDispense */ = {
+			isa = PBXGroup;
+			children = (
+				A62AF5B61869542D00B46876 /* TTWAppDelegate.h */,
+				A62AF5B71869542D00B46876 /* TTWAppDelegate.m */,
+				A62AF5BF1869542D00B46876 /* MainStoryboard_iPhone.storyboard */,
+				A62AF5C21869542D00B46876 /* MainStoryboard_iPad.storyboard */,
+				A62AF5C51869542D00B46876 /* TTWViewController.h */,
+				A62AF5C61869542D00B46876 /* TTWViewController.m */,
+				A62AF5AE1869542D00B46876 /* Supporting Files */,
+			);
+			path = PillDispense;
+			sourceTree = "<group>";
+		};
+		A62AF5AE1869542D00B46876 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A62AF5AF1869542D00B46876 /* PillDispense-Info.plist */,
+				A62AF5B01869542D00B46876 /* InfoPlist.strings */,
+				A62AF5B31869542D00B46876 /* main.m */,
+				A62AF5B51869542D00B46876 /* PillDispense-Prefix.pch */,
+				A62AF5B91869542D00B46876 /* Default.png */,
+				A62AF5BB1869542D00B46876 /* Default@2x.png */,
+				A62AF5BD1869542D00B46876 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A62AF5D41869542D00B46876 /* PillDispenseTests */ = {
+			isa = PBXGroup;
+			children = (
+				A62AF5DA1869542D00B46876 /* PillDispenseTests.h */,
+				A62AF5DB1869542D00B46876 /* PillDispenseTests.m */,
+				A62AF5D51869542D00B46876 /* Supporting Files */,
+			);
+			path = PillDispenseTests;
+			sourceTree = "<group>";
+		};
+		A62AF5D51869542D00B46876 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A62AF5D61869542D00B46876 /* PillDispenseTests-Info.plist */,
+				A62AF5D71869542D00B46876 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A62AF5A31869542D00B46876 /* PillDispense */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A62AF5DF1869542D00B46876 /* Build configuration list for PBXNativeTarget "PillDispense" */;
+			buildPhases = (
+				A62AF5A01869542D00B46876 /* Sources */,
+				A62AF5A11869542D00B46876 /* Frameworks */,
+				A62AF5A21869542D00B46876 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PillDispense;
+			productName = PillDispense;
+			productReference = A62AF5A41869542D00B46876 /* PillDispense.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A62AF5CC1869542D00B46876 /* PillDispenseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A62AF5E21869542D00B46876 /* Build configuration list for PBXNativeTarget "PillDispenseTests" */;
+			buildPhases = (
+				A62AF5C81869542D00B46876 /* Sources */,
+				A62AF5C91869542D00B46876 /* Frameworks */,
+				A62AF5CA1869542D00B46876 /* Resources */,
+				A62AF5CB1869542D00B46876 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A62AF5D31869542D00B46876 /* PBXTargetDependency */,
+			);
+			name = PillDispenseTests;
+			productName = PillDispenseTests;
+			productReference = A62AF5CD1869542D00B46876 /* PillDispenseTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A62AF59C1869542D00B46876 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TTW;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Michael Weingert";
+			};
+			buildConfigurationList = A62AF59F1869542D00B46876 /* Build configuration list for PBXProject "PillDispense" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A62AF59B1869542D00B46876;
+			productRefGroup = A62AF5A51869542D00B46876 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A62AF5A31869542D00B46876 /* PillDispense */,
+				A62AF5CC1869542D00B46876 /* PillDispenseTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A62AF5A21869542D00B46876 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62AF5B21869542D00B46876 /* InfoPlist.strings in Resources */,
+				A62AF5BA1869542D00B46876 /* Default.png in Resources */,
+				A62AF5BC1869542D00B46876 /* Default@2x.png in Resources */,
+				A62AF5BE1869542D00B46876 /* Default-568h@2x.png in Resources */,
+				A62AF5C11869542D00B46876 /* MainStoryboard_iPhone.storyboard in Resources */,
+				A62AF5C41869542D00B46876 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A62AF5CA1869542D00B46876 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62AF5D91869542D00B46876 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A62AF5CB1869542D00B46876 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A62AF5A01869542D00B46876 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62AF5B41869542D00B46876 /* main.m in Sources */,
+				A62AF5B81869542D00B46876 /* TTWAppDelegate.m in Sources */,
+				A62AF5C71869542D00B46876 /* TTWViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A62AF5C81869542D00B46876 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A62AF5DC1869542D00B46876 /* PillDispenseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A62AF5D31869542D00B46876 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A62AF5A31869542D00B46876 /* PillDispense */;
+			targetProxy = A62AF5D21869542D00B46876 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A62AF5B01869542D00B46876 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A62AF5B11869542D00B46876 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A62AF5BF1869542D00B46876 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A62AF5C01869542D00B46876 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A62AF5C21869542D00B46876 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A62AF5C31869542D00B46876 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A62AF5D71869542D00B46876 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A62AF5D81869542D00B46876 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A62AF5DD1869542D00B46876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A62AF5DE1869542D00B46876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A62AF5E01869542D00B46876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PillDispense/PillDispense-Prefix.pch";
+				INFOPLIST_FILE = "PillDispense/PillDispense-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A62AF5E11869542D00B46876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PillDispense/PillDispense-Prefix.pch";
+				INFOPLIST_FILE = "PillDispense/PillDispense-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A62AF5E31869542D00B46876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PillDispense.app/PillDispense";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PillDispense/PillDispense-Prefix.pch";
+				INFOPLIST_FILE = "PillDispenseTests/PillDispenseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A62AF5E41869542D00B46876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PillDispense.app/PillDispense";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PillDispense/PillDispense-Prefix.pch";
+				INFOPLIST_FILE = "PillDispenseTests/PillDispenseTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A62AF59F1869542D00B46876 /* Build configuration list for PBXProject "PillDispense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A62AF5DD1869542D00B46876 /* Debug */,
+				A62AF5DE1869542D00B46876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A62AF5DF1869542D00B46876 /* Build configuration list for PBXNativeTarget "PillDispense" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A62AF5E01869542D00B46876 /* Debug */,
+				A62AF5E11869542D00B46876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A62AF5E21869542D00B46876 /* Build configuration list for PBXNativeTarget "PillDispenseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A62AF5E31869542D00B46876 /* Debug */,
+				A62AF5E41869542D00B46876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A62AF59C1869542D00B46876 /* Project object */;
+}
