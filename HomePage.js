@@ -14,6 +14,8 @@ $('document').ready(function()
         $("#GoButton").hide();
 
         checkCookie();
+
+        SendStringToArduino("LOL");
 });
 
 $('body').click(function(e)
