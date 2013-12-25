@@ -21,6 +21,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    serverBridge = [[TTWServerBridge alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,6 +34,8 @@
 -(IBAction)Login:(id)sender
 {
     NSLog(@"Login button clicked");
+    
+    [serverBridge GetAllInventory];
 }
 
 -(IBAction)Register:(id)sender

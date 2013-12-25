@@ -24,6 +24,7 @@
 		A62AF5D11869542D00B46876 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A62AF5A91869542D00B46876 /* Foundation.framework */; };
 		A62AF5D91869542D00B46876 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A62AF5D71869542D00B46876 /* InfoPlist.strings */; };
 		A62AF5DC1869542D00B46876 /* PillDispenseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A62AF5DB1869542D00B46876 /* PillDispenseTests.m */; };
+		A6DE3E84186A5E3E00F89FE8 /* TTWServerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DE3E83186A5E3E00F89FE8 /* TTWServerBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		A62AF5D81869542D00B46876 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A62AF5DA1869542D00B46876 /* PillDispenseTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PillDispenseTests.h; sourceTree = "<group>"; };
 		A62AF5DB1869542D00B46876 /* PillDispenseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PillDispenseTests.m; sourceTree = "<group>"; };
+		A6DE3E82186A5E3E00F89FE8 /* TTWServerBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTWServerBridge.h; sourceTree = "<group>"; };
+		A6DE3E83186A5E3E00F89FE8 /* TTWServerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTWServerBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				A62AF5B61869542D00B46876 /* TTWAppDelegate.h */,
+				A6DE3E82186A5E3E00F89FE8 /* TTWServerBridge.h */,
+				A6DE3E83186A5E3E00F89FE8 /* TTWServerBridge.m */,
 				A62AF5B71869542D00B46876 /* TTWAppDelegate.m */,
 				A62AF5BF1869542D00B46876 /* MainStoryboard_iPhone.storyboard */,
 				A62AF5C21869542D00B46876 /* MainStoryboard_iPad.storyboard */,
@@ -278,6 +283,7 @@
 				A62AF5B41869542D00B46876 /* main.m in Sources */,
 				A62AF5B81869542D00B46876 /* TTWAppDelegate.m in Sources */,
 				A62AF5C71869542D00B46876 /* TTWViewController.m in Sources */,
+				A6DE3E84186A5E3E00F89FE8 /* TTWServerBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +474,7 @@
 				A62AF5E11869542D00B46876 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A62AF5E21869542D00B46876 /* Build configuration list for PBXNativeTarget "PillDispenseTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +483,7 @@
 				A62AF5E41869542D00B46876 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

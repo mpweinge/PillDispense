@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTWServerBridge.h"
 
 @interface TTWViewController : UIViewController
 {
     UIButton * LoginButton;
     UIButton * RegisterButton;
+    TTWServerBridge* serverBridge;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *LoginButton;
