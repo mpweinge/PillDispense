@@ -47,18 +47,23 @@
 	<button id="GetInventoryButton" onclick="javascript:GetPillInventory();">Get Pill Inventory</button>
 	<button id="UpdateInventoryButton" onclick="javascript:UpdatePillInventory();">Update Pill Inventory</button>
 </div>
-<p>
-	Todo: Check to see if user is logged in (check cookies) --> done
 </br>
-	Todo: If logged in, display "Welcome username message" --> done
+<table id="inventoryTable" border="1">
+</table>
 </br>
-	Todo: If not logged in, display prompt to log in --> done
 </br>
-	Todo: Welcome screen with header to select tingz to do
-</br>
-	Todo: Display pill inventories
-</br>
-	Todo: Learn R
-</p>
+<div id="ArduinoCommands">
+
+	<p style="display:inline;" id="ArduinoPillNameLabel">PillName</p>
+	<input type="text" value="" style="width:200px;" id="ArduinoPillNameTxt"></input>
+	
+	</br>
+	
+	<p style="display:inline; " id="ArduinoNumDispenseLabel">Number To Dispense / Stock </p>
+	<input type="text" value="" style="width:200px; " id="ArduinoNumDispenseTxt"></input>
+
+	<button id="DispenseButton" onclick="javascript:DispensePillsClicked();">Dispense Pills </button>
+	<button id="StockInventoryButton" onclick="javascript:StockInventoryClicked">Stock Pills </button>
+</div>
 </body>
 </html>

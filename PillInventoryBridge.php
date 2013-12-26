@@ -50,7 +50,11 @@ else if (isset($_GET['GetInventory']))
 	mysqli_query($con, $query); 
 	$results = mysqli_query($con, $query);
 
-	echo print_r(mysqli_fetch_assoc($results));
+	$LongData = array();
+
+	array_push($LongData, mysqli_fetch_assoc($results));
+
+	echo json_encode($LongData);
 }
 else if (isset($_GET['GetAllInventory']))
 {

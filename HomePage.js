@@ -4,18 +4,25 @@ var RegisterShowing = false;
 $('document').ready(function()
 {
 	$("#UsernameLabel").hide();
-        $("#PasswordLabel").hide();
-        $("#NameLabel").hide();
-        $("#EmailLabel").hide();
-        $("#UsernameTxt").hide();
-        $("#PasswordTxt").hide();
-        $("#NameTxt").hide();
-        $("#EmailTxt").hide();
-        $("#GoButton").hide();
+  $("#PasswordLabel").hide();
+  $("#NameLabel").hide();
+  $("#EmailLabel").hide();
+  $("#UsernameTxt").hide();
+  $("#PasswordTxt").hide();
+  $("#NameTxt").hide();
+  $("#EmailTxt").hide();
+  $("#GoButton").hide();
 
-        checkCookie();
+  checkCookie();
 
-        SendStringToArduino("LOL");
+  var table = document.getElementById('inventoryTable');
+  var row = table.insertRow(0);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  cell1.innerHTML = "ID";
+  cell2.innerHTML = "NAME";
+  cell3.innerHTML = "NUMLEFT";
 });
 
 $('body').click(function(e)
@@ -119,6 +126,25 @@ function GetAllInventory()
 function UpdatePillInventory()
 {
   UpdateInventory(document.getElementById('PillNameTxt').value, document.getElementById('NumLeftTxt').value);
+}
+
+function DispensePillsClicked()
+{
+  //Need to get pharmID here
+  var pharmID = 1;
+  DispensePills(document.getElementById('ArduinoPillNameTxt').value, 
+                document.getElementById('ArduinoNumDispenseTxt').value,
+                pharmID
+                );
+}
+
+function StockInventoryClicked()
+{
+  var pharmID = 1;
+  DispensePills(document.getElementById('ArduinoPillNameTxt').value, 
+                document.getElementById('ArduinoNumDispenseTxt').value,
+                pharmID
+                );
 }
 
 function getCookie(cname)
