@@ -2,3 +2,6 @@ DatabasePasswords.php
 *.xcscheme
 *.xcbkptlist
 *xcuserdata/*
+*.xcuserstate
+
+*.xcuserstate
