@@ -62,7 +62,6 @@ else if (isset($_GET['GetAllInventory']))
 	
 	$query = "SELECT * FROM " . $PillTableName;
 
-	mysqli_query($con, $query); 
 	$results = mysqli_query($con, $query);
 
 	if ($results)

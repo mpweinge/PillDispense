@@ -88,21 +88,98 @@ else if (isset($_GET['Dispense']))
 else if (isset($_GET['QueryByPill']))
 {
 	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
-	
-}
-else if (isset($_GET['QueryByTime']))
-{
 
+	$query = "SELECT * FROM " . $PillTableName . " WHERE name='" . $_GET['name'] . "'";
+
+	$row = mysqli_fetch_assoc($results);
+
+	if ($row)
+	{
+		$PillID = $row['id'];
+
+		$query = "SELECT * FROM " . $UsageTableName . " WHERE PillID='" . $PillID . "'";
+		$results = mysqli_query($con, $query);
+		if ($results)
+		{
+			$LongData = array();
+			while ($row = $results->fetch_assoc())
+			{
+				array_push($LongData, $row);
+			}
+			echo json_encode($LongData);
+		}
+	}
+}
+else if (isset($_GET['QueryByHour']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+
+	$query = "SELECT * FROM " . $UsageTableName . " WHERE hour(`CurrDate`) >= " . $_GET['HourLow'] .
+	" and hour(`CurrDate`) <= " . $_GET['HourHigh'];
+
+	$results = mysqli_query($con, $query);
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo json_encode($LongData);
+	}
 }
 else if (isset($_GET['QueryByDay']))
 {
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
 
+	$query = "SELECT * FROM " . $UsageTableName . " WHERE DAYOFWEEK(`CurrDate`) = " . $_GET['DayQuery'];
+
+	$results = mysqli_query($con, $query);
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo json_encode($LongData);
+	}
 }
 else if (isset($_GET['QueryByPharmacist']))
 {
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
 
+	$query = "SELECT * FROM " . $UsageTableName . " WHERE PharmacistID='" . $_GET['PharmacistID'] . "'";
+
+	$results = mysqli_query($con, $query);
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo json_encode($LongData);
+	}
 }
 else if (isset($_GET['QueryAll']))
 {
-	
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+
+	$query = "SELECT * FROM " . $UsageTableName;
+
+	$results = mysqli_query($con, $query);
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo json_encode($LongData);
+	}
 }
