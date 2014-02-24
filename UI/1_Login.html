@@ -30,11 +30,11 @@
 
     <div class="container">
 
-      <form class="form-signin" action="1_HomePage.html">
+      <form class="form-signin" action="javascript:void(0);">
         <h2 class="form-signin-heading">PilledIn</h2>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User ID" autofocus>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="text" class="form-control" id="UserText" placeholder="User ID" autofocus>
+            <input type="password" class="form-control" id="PassText" placeholder="Password">
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right">
@@ -42,7 +42,7 @@
 
                 </span>
             </label>
-            <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-login btn-block" type="submit" onclick="javascript:Login(document.getElementById('UserText').value, document.getElementById('PassText').value);">Sign in</button>
             <div class="registration">
                 Don't have an account yet?
                 <a class="" href="1_Registration.html">
@@ -83,6 +83,7 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="../Login.js"></script>
 
 
   </body>

@@ -128,18 +128,18 @@
 				  </header>
 				  <div class="panel-body">
   					  <p> Enter the patient's details below</p>
-					  <input type="text" class="form-control" placeholder="Full Name" autofocus>
-					  <input type="text" class="form-control" placeholder="Address">
-					  <input type="text" class="form-control" placeholder="City">
-					  <input type="text" class="form-control" placeholder="Province">
-					  <input type="text" class="form-control" placeholder="Postal Code">
-					  <input type="text" class="form-control" placeholder="Telephone Number">
-					  <input type="text" class="form-control" placeholder="Email">
-					  <input type="text" class="form-control" placeholder="Doctor">
-					  <input type="text" class="form-control" placeholder="Insurance Provider">
+					  <input type="text" class="form-control" placeholder="Full Name" id="nametext" autofocus>
+					  <input type="text" class="form-control" placeholder="Address" id="addresstext">
+					  <input type="text" class="form-control" placeholder="City" id="citytext">
+					  <input type="text" class="form-control" placeholder="Province" id="provincetext">
+					  <input type="text" class="form-control" placeholder="Postal Code" id="postalcodetext">
+					  <input type="text" class="form-control" placeholder="Telephone Number" id="numbertext">
+					  <input type="text" class="form-control" placeholder="Email" id="emailtext">
+					  <input type="text" class="form-control" placeholder="Doctor" id="doctortext">
+					  <input type="text" class="form-control" placeholder="Insurance Provider" id="insurancetext">
 					  <b></br>
 					  <button class="btn btn-lg btn-login btn-block btn-danger" type="submit">Cancel Changes</button>
-					  <button class="btn btn-lg btn-login btn-block btn-success" type="submit">Submit Changes</button>
+					  <button class="btn btn-lg btn-login btn-block btn-success" type="submit" onclick="javascript:UpdatePatient(document.getElementById('nametext').value, document.getElementById('addresstext').value, document.getElementById('citytext').value, document.getElementById('provincetext').value, document.getElementById('postalcodetext').value, document.getElementById('numbertext').value, document.getElementById('emailtext').value, document.getElementById('doctortext').value, document.getElementById('insurancetext').value);">Submit Changes</button>
 				  </div>
 			  </section>
 			  </div>
@@ -181,6 +181,7 @@
 	<script src="js/count.js"></script>
 	<script src="js/dropdownUpdate.js"></script>
 	<script src="js/editable-table.js"></script>
+  <script src="../Patient.js"></script>
 
 	<!-- END JAVASCRIPTS -->
 	<script>

@@ -30,17 +30,17 @@
 
     <div class="container">
 
-      <form class="form-signin" action="1_HomePage.html">
+      <form class="form-signin" action="javascript:void(0);">
         <h2 class="form-signin-heading">Register New User</h2>
         <div class="login-wrap">
             <p> Enter your account details below</p>
-            <input type="text" class="form-control" placeholder="Full Name" autofocus>
+            <input type="text" class="form-control" placeholder="Full Name" id ="UserText" autofocus>
 			<input type="text" class="form-control" placeholder="User Id">
-			<input type="text" class="form-control" placeholder="Email">
-			<input type="text" class="form-control" placeholder="Location">
-            <input type="password" class="form-control" placeholder="Password">
+			<input type="text" class="form-control" placeholder="Email" id="EmailText">
+			<input type="text" class="form-control" placeholder="Location" id="LocationText">
+            <input type="password" class="form-control" placeholder="Password" id="PassText">
             <input type="password" class="form-control" placeholder="Re-type Password">
-            <button class="btn btn-lg btn-login btn-block" type="submit">Submit</button>
+            <button class="btn btn-lg btn-login btn-block" type="submit" onclick="javascript:Register(document.getElementById('UserText').value, document.getElementById('PassText').value, document.getElementById('EmailText').value, document.getElementById('LocationText').value);">Submit</button>
 
             <div class="registration">
                 Already Registered.
@@ -55,6 +55,8 @@
 
     </div>
 
+    <script src="js/jquery.js"></script>
+    <script src="../Login.js"></script>
 
   </body>
 </html>

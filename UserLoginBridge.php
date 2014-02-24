@@ -47,8 +47,6 @@ if (isset($_GET['Login']))
 
             $LoginData = json_encode($LoginData);
 
-            print_r($LoginData);
-
             setcookie('loginCookie', $LoginData);
         }
         else $err[]='Wrong username and/or password!';
@@ -94,15 +92,25 @@ else if (isset($_GET['Register']))
     {
         // If there are no errors
         $pass = md5($_GET['password']);
+        $email = $_GET['email'];
 
-        $query = "   INSERT INTO Users(username,password)
+        $query = "   INSERT INTO Users(username,password, email)
                     VALUES(
                     '" . $Username . "',
-                    '". $pass ."'
+                    '". $pass ."',
+                    '". $email ."'
         )";
 
         // Escape the input data
         mysqli_query($con, $query);
+
+        $LoginData = array();
+        $LoginData['username'] = $_GET['username'];
+        $LoginData['password'] = $_GET['password'];
+
+        $LoginData = json_encode($LoginData);
+
+        setcookie('loginCookie', $LoginData);
     }
 
     if(count($err))

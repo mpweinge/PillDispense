@@ -77,12 +77,12 @@ function GetAllInventoryBridge()
 {
   $.ajax({
             type: "GET",
-            url: "PillInventoryBridge.php",
+            url: "../PillInventoryBridge.php",
             data:{GetAllInventory:"True"},
             success: function(msg)
             {
               alert(msg);
-              var table = document.getElementById('inventoryTable');
+              var table = document.getElementById('hidden-table-info');
               var tableRows = table.getElementsByTagName('tr');
               var rowCount = tableRows.length;
 
