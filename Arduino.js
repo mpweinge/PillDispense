@@ -20,7 +20,7 @@ function DispensePills(name, number, PharmID)
   $.ajax({
             type: "GET",
             url: "Arduino.php",
-            data:{Dispense:"True", name: name, number:number},
+            data:{SendText:"True", name: name, number:number},
             success: function(msg)
             {
               alert(msg);

@@ -7,6 +7,7 @@ $ArduinoName = "http://pilldispenseyun.local/arduino/LOL";
 
 if (isset($_GET['SendText']))
 {
+	echo "LOLTEST";
 	$cookie = tmpfile();
 	$userAgent = 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31' ;
 
