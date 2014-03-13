@@ -1,6 +1,6 @@
 function Login(username, password)
 {
-  alert("Logging in" + username + password);
+  console.log("Logging in" + username + password);
   $.ajax({
             type: "GET",
             url: "../UserLoginBridge.php",
@@ -10,17 +10,16 @@ function Login(username, password)
               console.log(msg);
               if (msg == "")
               {
-                window.location = "1_HomePage.html";
+                window.location = "home.html";
               }
               else
               {
-                alert(msg);
+                console.log(msg);
               }
             },
             error: function(jqXHR, textStatus, errorThrown) 
             {
-              alert("failed" + jqXHR + textStatus + errorThrown);
-              console.log(msg);
+              console.log("failed" + jqXHR + textStatus + errorThrown);
             }
            });
 }

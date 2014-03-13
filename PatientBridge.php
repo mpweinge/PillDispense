@@ -83,4 +83,27 @@ else if (isset($_GET['UpdatePatient']))
     insurance='{$_GET['insurance']}' WHERE name='{$_GET['name']}'";
     mysqli_query($con, $query); 
 }
+else if (isset($_GET['GetPatients']))
+{
+    $con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+    $query = "SELECT * FROM Patients WHERE name LIKE '" . $_GET['beginString'] . "%'";
+    $results = mysqli_query($con, $query);
+
+    if ($results)
+    {
+        $LongData = array();
+        while ($row = $results->fetch_assoc())
+        {
+            array_push($LongData, $row);
+        }
+        echo json_encode($LongData);
+    }
+}
+else if (isset($_GET['DeletePatient']))
+{
+    $con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+    $query = "DELETE FROM Patients WHERE name = '" . $_GET['name'] . "'";
+    echo $query;
+    mysqli_query($con, $query);
+}
 ?>

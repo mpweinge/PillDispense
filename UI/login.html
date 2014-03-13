@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>FlatLab - Flat & Responsive Bootstrap Admin Template</title>
+    <title>PilledIn - Login</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,31 +29,40 @@
   <body class="login-body">
 
     <div class="container">
-
-      <form class="form-signin" action="index.html">
-        <h2 class="form-signin-heading">sign in now</h2>
+      <!--header start-->
+      <header class="header white-bg">
+          <!--logo start-->
+          <a class="logo">&nbsp&nbspPilled<span>In</span></a>
+          <!--logo end-->
+		  <div class="nav pull-right top-menu btn">
+			  <a type="button" class="btn btn-info" href="http://www.facebook.com/sharer.php?u=http://www.pilledin.com/"><i class="icon-facebook"></i>&#160&#160&#160&#160share on facebook</a>
+			  <a type="button" class="btn btn-primary" href="http://twitter.com/share?text=Share www.pilledin.com; url=http://www.pilledin.com/"><i class="icon-twitter"></i>&#160&#160&#160&#160twitter</a>
+			  <a type="button" class="btn btn-danger" href="http://pinterest.com/pin/create/button/?url=http://www.pilledin.com;descriptionShare www.pilledin.com;media=http://ramp.ie/wp-content/uploads/2012/09/Pills.jpg"><i class="icon-pinterest"></i>&#160&#160&#160&#160pinterest</a>
+		  </div>
+      </header>
+      <!--header end-->
+	    <form class="form-signin" action="javascript:void(0);"> <!--Mikey change this one for linking "action"-->
+        <h2 class="form-signin-heading"><b>Pilled</b><span style="color:#ff6c60"><b>In</b></span></h2>
         <div class="login-wrap">
-            <input type="text" class="form-control" placeholder="User ID" autofocus>
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="text" class="form-control" id="UserText" placeholder="User ID" autofocus>
+            <input type="password" class="form-control" id="PassText" placeholder="Password">
             <label class="checkbox">
                 <input type="checkbox" value="remember-me"> Remember me
                 <span class="pull-right">
                     <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
-
                 </span>
             </label>
-            <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
-            <p>or you can sign in via social network</p>
+            <button class="btn btn-lg btn-login btn-block" type="submit" onclick="javascript:Login(document.getElementById('UserText').value, document.getElementById('PassText').value);">Sign in</button>
+
+            <p>or you read about us here</p>
             <div class="login-social-link">
-                <a href="index.html" class="facebook">
-                    <i class="icon-facebook"></i>
-                    Facebook
-                </a>
-                <a href="index.html" class="twitter">
-                    <i class="icon-twitter"></i>
-                    Twitter
+                <a href="index.html" class="facebook btn-block">
+                    About Us
                 </a>
             </div>
+			<br></br>
+			<br></br>
+
             <div class="registration">
                 Don't have an account yet?
                 <a class="" href="registration.html">
@@ -94,7 +103,8 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="../Login.js"></script>
 
-
+	
   </body>
 </html>

@@ -84,3 +84,32 @@ else if (isset($_GET['UpdateInventory']))
     $query = "UPDATE " . $PillTableName . " SET numLeft='{$_GET['numLeft']}' WHERE name='{$_GET['name']}'";
     mysqli_query($con, $query); 
 }
+else if (isset($_GET['NewInventory']))
+{
+	echo "IN HERE";
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+
+	$Names = json_decode($_GET['Names']);
+	$NumLeft = json_decode($_GET['NumLeft']);
+
+	print_r($Names);
+	print_r($NumLeft);
+
+	//Delete all rows from the inventory table
+	$query = "TRUNCATE Pills";
+	mysqli_query($con, $query);
+
+	$NamesSize = sizeof($Names);
+
+	echo $NamesSize;
+
+	for ($i = 0; $i < $NamesSize; $i++) {
+		$query = "INSERT INTO " . $PillTableName . "(name, numLeft) 
+			VALUES(
+                    '".$Names[$i]."',
+                    '".$NumLeft[$i]."'
+                    )";
+		mysqli_query($con, $query);
+	}
+
+}
