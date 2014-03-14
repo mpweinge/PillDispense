@@ -118,6 +118,45 @@ function DeleteRow(rowNum)
     SendInventoryChangesToServer(-1);
 }
 
+function SetRowEditableNoServer(rowNum, rowEditable)
+{
+  var table = document.getElementById('dispenseTable');
+  var tableRows = table.getElementsByTagName('tr');
+  var currRow = tableRows[rowNum];
+  var Cells = currRow.getElementsByTagName('td');
+  for (var i = 0; i < 2; i++)
+  {
+    Cells[i].setAttribute("contentEditable", rowEditable);
+  }
+
+  Cells[2].innerHTML = '<a href= ' + '"javascript:SetRowEditableNoServer(' + rowNum + ',false);"' + '> Edit </a>';
+}
+
+function DeleteRowNoServer(rowNum)
+{
+  var table = document.getElementById('dispenseTable');
+
+   table.deleteRow(rowNum);
+}
+
+function AddDispenseRow()
+{
+  var table = document.getElementById('dispenseTable');
+  var tableRows = table.getElementsByTagName('tr');
+  var rowCount = tableRows.length;
+
+  var row = table.insertRow(rowCount);
+  var cell2 = row.insertCell(0);
+  var cell3 = row.insertCell(1);
+  var cell4 = row.insertCell(2);
+  var cell5 = row.insertCell(3);
+  cell2.innerHTML = "Insert Pill Name Here";
+  cell3.innerHTML = "Number To Dispense";
+  cell4.innerHTML = '<a href= ' + '"javascript:SetRowEditableNoServer(' + rowCount + ',true);"' + '> Edit </a>';
+  cell5.innerHTML= "Delete";
+  cell5.innerHTML = '<a href= ' + '"javascript:DeleteRowNoServer(' + rowCount + ');"' + '> Delete </a>';
+}
+
 function AddRow()
 {
   var table = document.getElementById('inventoryTable');

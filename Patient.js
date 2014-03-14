@@ -183,3 +183,80 @@ function PatientAutocomplete()
             }
            });
 }
+
+function FetchPatientDrugList(name)
+{
+$.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{QueryByPatient:true,
+                  PatientName:name
+                  },
+            success: function(msg)
+            {
+              //All of the data is coming in 
+              var PatientPills = JSON.parse(msg);
+
+              console.log(PatientPills);
+
+              var table = document.getElementById('hidden-table-info');
+
+              var tableRows = table.getElementsByTagName('tr');
+              var rowCount = tableRows.length;
+
+              for (var x=rowCount-1; x>0; x--) {
+                 table.deleteRow(x);
+              }
+
+              for (var i = 0; i < PatientPills.length; i++)
+              {
+                var usageEvent = PatientPills[i];
+                var row = table.insertRow(i+1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var cell3 = row.insertCell(2);
+                var cell4 = row.insertCell(3);
+                cell2.innerHTML = PatientPills[i]['PillName'];
+                cell3.innerHTML = PatientPills[i]['ChangeInCount'];
+                cell4.innerHTML = PatientPills[i]['CurrDate'];
+              }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+              alert("failed" + jqXHR + textStatus + errorThrown);
+              console.log(msg);
+            }
+           });
+}
+
+function GetListOfPatients()
+{
+  $.ajax({
+            type: "GET",
+            url: "../PatientBridge.php",
+            data:{GetPatients:true,
+                  beginString:""
+                  },
+            success: function(msg)
+            {
+              var PatientDict = JSON.parse(msg);
+              var NumPatients = PatientDict.length;
+              var DropDown = document.getElementById("NameSelection");
+
+              for (var i = 0; i < NumPatients; i++)
+              {
+                var newLi = document.createElement("li");
+                var currName = PatientDict[i]['name'];
+                var htmlString = '<a href="javascript:FetchPatientDrugList(' + "'" + currName + "'" + ')">' + currName + '</a>';
+                newLi.innerHTML = htmlString;
+                DropDown.appendChild(newLi);
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+              alert("failed" + jqXHR + textStatus + errorThrown);
+              console.log(msg);
+            }
+           });
+}

@@ -9,20 +9,14 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Statistics</title>
+    <title>xchart</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-reset.css" rel="stylesheet">
     <!--external css-->
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
-  <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
-    <link href="assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
-    <link href="assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
-  <link href="assets/morris.js-0.4.3/morris.css" rel="stylesheet" />
-
+    <link href="assets/xchart/xcharts.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
@@ -121,169 +115,25 @@
       </aside>
       <!--sidebar end-->
 
-      <!--main content start-->
+       <!--main content start-->
       <section id="main-content">
           <section class="wrapper site-min-height">
               <!-- page start-->
-              <div id="morris">
-                  <div class="row">
-                      <div class="col-lg-6">
-                          <section class="panel">
-                              <header class="panel-heading">
-                                  Jaguar 'E' Type vehicles in the UK
-                              </header>
-                              <div class="panel-body">
-                                  <div id="hero-graph" class="graph"></div>
-                              </div>
-                          </section>
-                      </div>
-                      <div class="col-lg-6">
-                          <section class="panel">
-                              <header class="panel-heading">
-                                  iPhone CPU benchmarks
-                              </header>
-                              <div class="panel-body">
-                                  <div id="hero-bar" class="graph"></div>
-                              </div>
-                          </section>
-                      </div>
+              <section class="panel">
+                  <header class="panel-heading" style="width: 500px; float:left; left-margin:150px;">
+                      Daily Usage
+                  </header>
+                  <header class="panel-heading" style="width: 50%; float:left;">
+                      Hourly Usage
+                  </header>
+                  <div id = "DailyChart" style="width: 500px; float:left;">
+                      <svg id="chart" width="485" height = "400" onclick="console.log('click!')" onmouseover:"console.log('hover')"></figure>
                   </div>
-                  <div class="row">
-                      <div class="col-lg-6">
-                          <section class="panel">
-                              <header class="panel-heading">
-                                  Quarterly Apple iOS device unit sales
-                              </header>
-                              <div class="panel-body">
-                                  <div id="hero-area" class="graph"></div>
-                              </div>
-                          </section>
-                      </div>
-                      <div class="col-lg-6">
-                          <section class="panel">
-                              <header class="panel-heading">
-                                  Donut flavours
-                              </header>
-                              <div class="panel-body">
-                                  <div id="hero-donut" class="graph"></div>
-                              </div>
-                          </section>
-                      </div>
+                  
+                  <div float='left' width="500" height="400">
+                      <svg id="chart2" width="485" height = "400" ></figure>
                   </div>
-              </div>
-        
-              <div class="row">
-                  <div class="col-lg-8">
-                      <!--custom chart start-->
-                      <div class="border-head">
-                          <h3>Earning Graph</h3>
-                      </div>
-                      <div class="custom-bar-chart">
-                          <ul class="y-axis">
-                              <li><span>100</span></li>
-                              <li><span>80</span></li>
-                              <li><span>60</span></li>
-                              <li><span>40</span></li>
-                              <li><span>20</span></li>
-                              <li><span>0</span></li>
-                          </ul>
-                          <div class="bar">
-                              <div class="title">JAN</div>
-                              <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">FEB</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">MAR</div>
-                              <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">APR</div>
-                              <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">MAY</div>
-                              <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">JUN</div>
-                              <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">JUL</div>
-                              <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">AUG</div>
-                              <div class="value tooltips" data-original-title="45%" data-toggle="tooltip" data-placement="top">45%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">SEP</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">OCT</div>
-                              <div class="value tooltips" data-original-title="42%" data-toggle="tooltip" data-placement="top">42%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">NOV</div>
-                              <div class="value tooltips" data-original-title="60%" data-toggle="tooltip" data-placement="top">60%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">DEC</div>
-                              <div class="value tooltips" data-original-title="90%" data-toggle="tooltip" data-placement="top">90%</div>
-                          </div>
-                      </div>
-                      <!--custom chart end-->
-                  </div>
-                  <div class="col-lg-4">
-                      <!--new earning start-->
-                      <div class="panel terques-chart">
-                          <div class="panel-body chart-texture">
-                              <div class="chart">
-                                  <div class="heading">
-                                      <span>Friday</span>
-                                      <strong>$ 57,00 | 15%</strong>
-                                  </div>
-                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
-                              </div>
-                          </div>
-                          <div class="chart-tittle">
-                              <span class="title">New Earning</span>
-                              <span class="value">
-                                  <a href="#" class="active">Market</a>
-                                  |
-                                  <a href="#">Referal</a>
-                                  |
-                                  <a href="#">Online</a>
-                              </span>
-                          </div>
-                      </div>
-                      <!--new earning end-->
-
-                      <!--total earning start-->
-                      <div class="panel green-chart">
-                          <div class="panel-body">
-                              <div class="chart">
-                                  <div class="heading">
-                                      <span>June</span>
-                                      <strong>23 Days | 65%</strong>
-                                  </div>
-                                  <div id="barchart"></div>
-                              </div>
-                          </div>
-                          <div class="chart-tittle">
-                              <span class="title">Total Earning</span>
-                              <span class="value">$, 76,54,678</span>
-                          </div>
-                      </div>
-                      <!--total earning end-->
-                  </div>
-              </div>
-        
-
+              </section>
               <!-- page end-->
           </section>
       </section>
@@ -301,73 +151,43 @@
   </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
-
-  <script src="js/jquery.js"></script>
-    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" language="javascript" src="assets/advanced-datatable/media/js/jquery.js"></script>
-    <script type="text/javascript" language="javascript" src="assets/advanced-datatable/media/js/jquery.dataTables.js"></script>
     <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="js/jquery.scrollTo.min.js"></script>
     <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
-    <script src="js/jquery.sparkline.js" type="text/javascript"></script>
-    <script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
-    <script type="text/javascript" src="assets/data-tables/jquery.dataTables.js"></script>
-    <script type="text/javascript" src="assets/data-tables/DT_bootstrap.js"></script>
-    <script src="js/owl.carousel.js" ></script>
-    <script src="js/jquery.customSelect.min.js" ></script>
-    <script src="assets/morris.js-0.4.3/morris.min.js" type="text/javascript"></script>
-    <script src="assets/morris.js-0.4.3/raphael-min.js" type="text/javascript"></script>
     <script src="js/respond.min.js" ></script>
 
-  <script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="assets/xchart/d3.v3.min.js"></script>
+  <script src="assets/xchart/xcharts.min.js"></script>
 
-  
     <!--common script for all pages-->
     <script src="js/common-scripts.js"></script>
-    
-  <!--script for this page-->
-    <script src="js/sparkline-chart.js"></script>
-    <script src="js/easy-pie-chart.js"></script>
-  <script src="js/count.js"></script>
-  <script src="js/dropdownUpdate.js"></script>
-  <script src="js/editable-table.js"></script>
-    <script src="js/morris-script.js"></script>
+    <script src="../GraphData.js"></script>
 
-  <!-- END JAVASCRIPTS -->
   <script>
+      //(
+       // function() { 
+        GetDataByDay(2);
+        GetDataByDay(3);
+        GetDataByDay(4);
+        GetDataByDay(5);
+        GetDataByDay(6);
 
-      //owl carousel
-
-      $(document).ready(function() {
-          $("#owl-demo").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true,
-        autoPlay:true
-
-          });
-      });
-
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
+        GetDataByHour(9);
+        GetDataByHour(10);
+        GetDataByHour(11);
+        GetDataByHour(12);
+        GetDataByHour(13);
+        GetDataByHour(14);
+        GetDataByHour(15);
+        GetDataByHour(16);
+        GetDataByHour(17);
+        GetDataByHour(18);
+      //}()
+       // );
   </script>
-
-  <script>
-    jQuery(document).ready(function() {
-      EditableTable.init();
-    });
-  </script> 
 
   
   </body>
 </html>
-
-<!-- Hosting24 Analytics Code -->
-<script type="text/javascript" src="http://stats.hosting24.com/count.php"></script>
-<!-- End Of Analytics Code -->

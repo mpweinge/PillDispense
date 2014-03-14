@@ -110,12 +110,10 @@ else if (isset($_GET['QueryByPill']))
 		}
 	}
 }
-else if (isset($_GET['QueryByHour']))
-{
-	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
-
-	$query = "SELECT * FROM " . $UsageTableName . " WHERE hour(`CurrDate`) >= " . $_GET['HourLow'] .
-	" and hour(`CurrDate`) <= " . $_GET['HourHigh'];
+else if (isset($_GET['QueryByPatient']))
+{	
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);	
+	$query = "SELECT * FROM UsageTable WHERE Patient = '" . $_GET['PatientName'] . "'";
 
 	$results = mysqli_query($con, $query);
 
@@ -127,6 +125,25 @@ else if (isset($_GET['QueryByHour']))
 			array_push($LongData, $row);
 		}
 		echo json_encode($LongData);
+	}
+}
+else if (isset($_GET['QueryByHour']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+
+	$query = "SELECT * FROM " . $UsageTableName . " WHERE hour(`CurrDate`) >= " . $_GET['HourLow'] .
+	" and hour(`CurrDate`) < " . $_GET['HourHigh'];
+
+	$results = mysqli_query($con, $query);
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo count($LongData);
 	}
 }
 else if (isset($_GET['QueryByDay']))
@@ -144,7 +161,7 @@ else if (isset($_GET['QueryByDay']))
 		{
 			array_push($LongData, $row);
 		}
-		echo json_encode($LongData);
+		echo count($LongData);
 	}
 }
 else if (isset($_GET['QueryByPharmacist']))
