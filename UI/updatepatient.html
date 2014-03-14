@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Create a Patient</title>
+    <title>Update a Patient</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <span class="username">Tayler Dellandrea</span>
+                          <span class="username" id="usernameTitle" >Tayler Dellandrea</span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
@@ -132,7 +132,7 @@
 					  <div class="col-lg-10">
 						  <input type="text" class="form-control" placeholder="Full Name" id="nameQueryText" autofocus onkeyup="javascript:PatientAutocomplete();">
 
-						  <select multiple class="form-control" id="PatientAutocompleteSelect">
+						  <select multiple class="form-control" id="PatientAutocompleteSelect" onchange="javascript:SelectionChanged();">
 							  <option>Start Typing Patient Name to Edit</option>
 						  </select>
 					  <b></br>
@@ -151,7 +151,7 @@
 					  <input type="text" class="form-control" placeholder="Doctor" id="doctortext">
 					  <input type="text" class="form-control" placeholder="Insurance Provider" id="insurancetext">
 					  <b></br>
-					  <button class="btn btn-lg btn-login btn-block btn-danger" type="submit">Cancel Changes</button>
+					  <button class="btn btn-lg btn-login btn-block btn-danger" type="submit" onclick="javascript:window.location = 'home.html'">Cancel Changes</button>
 					  <button class="btn btn-lg btn-login btn-block btn-success" type="submit" onclick="javascript:UpdatePatient(document.getElementById('nametext').value, document.getElementById('addresstext').value, document.getElementById('citytext').value, document.getElementById('provincetext').value, document.getElementById('postalcodetext').value, document.getElementById('numbertext').value, document.getElementById('emailtext').value, document.getElementById('doctortext').value, document.getElementById('insurancetext').value);">Submit Changes</button>
 				  </div>
 			  </section>
@@ -219,6 +219,8 @@
       }
 
       $(document).ready(function() {
+
+        PatientAutocomplete();
           /*
            * Insert a 'details' column to the table
            */

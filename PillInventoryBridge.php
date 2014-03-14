@@ -111,5 +111,35 @@ else if (isset($_GET['NewInventory']))
                     )";
 		mysqli_query($con, $query);
 	}
+}
+else if (isset($_GET['PillAutocomplete']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+	
+	$query = "SELECT * FROM Pills WHERE name LIKE '" . $_GET['beginString'] . "%'";
+
+	$results = mysqli_query($con, $query);	
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo json_encode($LongData);
+	}
+}
+else if (isset($_GET['ChangeInInventory']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+	$query = "SELECT * FROM Pills WHERE name = '" . $_GET['pillname'] . "'";
+	$results = mysqli_query($con, $query);
+
+	$row = $results->fetch_assoc();
+
+	$query = "UPDATE Pills SET numLeft = " . ($row['numLeft'] - $_GET['changeincount']) . " WHERE name = '" . $_GET['pillname'] . "'";
+
+	mysqli_query($con, $query);
 
 }

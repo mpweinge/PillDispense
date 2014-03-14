@@ -24,7 +24,7 @@ function Login(username, password)
            });
 }
 
-function Register(username, password, email, location)
+function Register(username, password, email)
 {
   $.ajax({
             type: "GET",

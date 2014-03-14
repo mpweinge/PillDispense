@@ -21,7 +21,7 @@ function countUp(count)
 
 function countUp2(count)
 {
-    var div_by = 100,
+    var div_by = 10,
         speed = Math.round(count / div_by),
         $display = $('.count2'),
         run_count = 1,
@@ -44,7 +44,7 @@ function countUp2(count)
 
 function countUp3(count)
 {
-    var div_by = 100,
+    var div_by = 10,
         speed = Math.round(count / div_by),
         $display = $('.count3'),
         run_count = 1,
@@ -96,20 +96,20 @@ function getCookie(cname)
   return "";
 }
 
-$(document).ready( function() {
-    countUp(495);
-    countUp2(947);
-    countUp3(328);
-    countUp4(10328);
+//$(document).ready( function() {
 
     var usernameCook = getCookie("loginCookie");
+
+    if (!usernameCook)
+        window.location = "login.html";
+
     usernameCook = decodeURIComponent(usernameCook);
     var username = JSON && JSON.parse(usernameCook);
     if (username!="")
     {
-        alert("Welcome again " + username.username);
+        //alert("Welcome again " + username.username);
 
         var Title = document.getElementById("usernameTitle");
         Title.innerHTML = username.username;
     }
-});
+//});

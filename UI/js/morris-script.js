@@ -1,10 +1,47 @@
+var usageArray = new Array();
+
+var indexToNameMap = new Array();
+var nameToIndexMap = new Array();
+
+var numPills = 0;
+
+function DrawDonut()
+{
+  var total = 0;
+  for (var i = 0; i < usageArray.length; i++)
+    total += +usageArray[i];
+
+  var dataObj = new Array();
+  for (var i = 0; i < usageArray.length ; i++)
+  {
+    var currObj = new Array();
+    
+    currObj["label"] = nameToIndexMap[i];
+    currObj["value"] = Math.round(+usageArray[i] / +total * 1000)/10;
+    dataObj.push(currObj);
+  } 
+  
+  Morris.Donut({
+        element: 'hero-donut',
+        data: /*[
+          {label: 'Advil', value: +AdvilUsage/+total*100 },
+          {label: 'Tylenol White', value: +TylenolUsage/+total*100 },
+          {label: 'Morphene', value: +MorphUsage/+total*100 },
+          {label: 'Bees', value: +BeesUsage/+total*100 },
+          {label: 'Adderall', value: +AdderallUsage/+total*100 }
+        ]*/dataObj,
+          colors: ['#41cac0', '#49e2d7', '#34a39b'],
+        formatter: function (y) { return y + "%" }
+      });
+}
+
 var Script = function () {
 
     //morris chart
 
     $(function () {
       // data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type
-      var tax_data = [
+      /*var tax_data = [
            {"period": "2011 Q3", "licensed": 3407, "sorned": 660},
            {"period": "2011 Q2", "licensed": 3351, "sorned": 629},
            {"period": "2011 Q1", "licensed": 3269, "sorned": 618},
@@ -22,21 +59,74 @@ var Script = function () {
         ykeys: ['licensed', 'sorned'],
         labels: ['Licensed', 'Off the road'],
         lineColors:['#8075c4','#6883a3']
-      });
+      });*/
+  
+      //Get all of the pills
+      //Get all of the counts of each
 
-      Morris.Donut({
-        element: 'hero-donut',
-        data: [
-          {label: 'Jam', value: 25 },
-          {label: 'Frosted', value: 40 },
-          {label: 'Custard', value: 25 },
-          {label: 'Sugar', value: 10 }
-        ],
-          colors: ['#41cac0', '#49e2d7', '#34a39b'],
-        formatter: function (y) { return y + "%" }
-      });
+       $.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{GetUniquePills:"True"},
+            success: function(msg)
+            {
+              var inventoryTotal = JSON.parse(msg);
 
-      Morris.Area({
+              numPills = inventoryTotal.length;
+              //Get number of pills
+              for (var i = 0; i < numPills; i++)
+                usageArray.push(-1);
+
+              for (var i = 0; i < numPills; i++)
+              {
+                var pill = inventoryTotal[i];
+
+                indexToNameMap[pill.PillName] = i;
+                nameToIndexMap[i] = pill.PillName;
+
+                $.ajax({
+                    type: "GET",
+                    url: "../UsageBridge.php",
+                    data:{QueryByPill:true,
+                          pillname:pill.PillName
+                          },
+                    success: function(msg)
+                    {
+                      msg = JSON.parse(msg);
+                        var usageIndex = indexToNameMap[msg['name']];
+
+                        console.log(usageIndex);
+
+                        usageArray[usageIndex] = msg['count'];
+
+                        var noNegOne = true;
+                        for (var i = 0; i < numPills; i++)
+                        {
+                          if (usageArray[i] == -1)
+                            noNegOne = false;
+                        }
+
+                        if (noNegOne)
+                          DrawDonut();
+                    
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) 
+                    {
+                      alert("failed" + jqXHR + textStatus + errorThrown);
+                    }
+                });
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+              alert("failed" + jqXHR + textStatus + errorThrown);
+            }
+
+            });
+      //} 
+
+
+      /*Morris.Area({
         element: 'hero-area',
         data: [
           {period: '2010 Q1', iphone: 2666, ipad: null, itouch: 2647},
@@ -97,7 +187,7 @@ var Script = function () {
 
       $('.code-example').each(function (index, el) {
         eval($(el).text());
-      });
+      });*/
     });
 
 }();

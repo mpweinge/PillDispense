@@ -46,7 +46,7 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <span class="username">Tayler Dellandrea</span>
+                          <span class="username" id="usernameTitle">Tayler Dellandrea</span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
@@ -124,19 +124,15 @@
 			  <div class="col-lg-4">
 			  <section class="panel">
 				  <header class="panel-heading">
-					  <b>Update Profile</b>
+					  <b>Profile Information</b>
 				  </header>
 				  <div class="panel-body">
-  					  <p> Enter the patient's details below</p>
-					  <input type="text" class="form-control" placeholder="Full Name" autofocus>
-					  <input type="text" class="form-control" placeholder="User Id">
-					  <input type="text" class="form-control" placeholder="Email">
-					  <input type="text" class="form-control" placeholder="Location">
-					  <input type="text" class="form-control" placeholder="Password">
-					  <input type="text" class="form-control" placeholder="Re-type Password">
+  					  <p> View User's Details Below</p>
+					  <input type="text" readonly class="form-control" placeholder="Full Name" id="nametext" autofocus onkeydown="javascript:EditingName();">
+					  <input type="text" readonly class="form-control" placeholder="Email" id="emailtext">
 					  <b></br>
-					  <button class="btn btn-lg btn-login btn-block btn-danger" type="submit">Cancel Changes</button>
-					  <button class="btn btn-lg btn-login btn-block btn-success" type="submit">Submit Changes</button>
+					  <button class="btn btn-lg btn-login btn-block btn-danger" type="submit" onclick="javascript:window.location = 'home.html'">Home</button>
+					  <!--<button class="btn btn-lg btn-login btn-block btn-success" type="submit" onclick="javascript:UpdateUser(document.getElementById('nametext').value, document.getElementById('emailtext').value, document.getElementById('passwordtext').value);">Submit Changes</button>-->
 				  </div>
 			  </section>
 			  </div>
@@ -183,6 +179,31 @@
 	<script>
 		jQuery(document).ready(function() {
 			EditableTable.init();
+
+      //Get cookie
+      var usernameCook = getCookie("loginCookie");
+       usernameCook = decodeURIComponent(usernameCook);
+    var username = JSON && JSON.parse(usernameCook);
+
+    document.getElementById('nametext').value = username['username'];
+
+    $.ajax({
+      type: "GET",
+      url: "../UserLoginBridge.php",
+      data:{
+        GetEmail:true,
+        username:username['username']
+      },
+      success:function(msg)
+      {
+        document.getElementById('emailtext').value = msg;
+      },
+      error: function(jqXHR, textStatus, errorThrown) 
+      {
+        alert("failed" + jqXHR + textStatus + errorThrown);
+      }
+    })
+
 		});
 	</script>	
 

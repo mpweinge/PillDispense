@@ -82,6 +82,7 @@ else if (isset($_GET['UpdatePatient']))
     phonenumber='{$_GET['phonenumber']}', email='{$_GET['email']}', doctor='{$_GET['doctor']}',
     insurance='{$_GET['insurance']}' WHERE name='{$_GET['name']}'";
     mysqli_query($con, $query); 
+    echo $query;
 }
 else if (isset($_GET['GetPatients']))
 {
@@ -102,7 +103,7 @@ else if (isset($_GET['GetPatients']))
 else if (isset($_GET['DeletePatient']))
 {
     $con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
-    $query = "DELETE FROM Patients WHERE name = '" . $_GET['name'] . "'";
+    $query = 'DELETE FROM Patients WHERE name = "' . $_GET['name'] . '"';
     echo $query;
     mysqli_query($con, $query);
 }

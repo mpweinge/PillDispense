@@ -25,6 +25,8 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
 
+    <script src="../Inventory.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
     <!--[if lt IE 9]>
       <script src="js/html5shiv.js"></script>
@@ -48,7 +50,7 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <span class="username">Tayler Dellandrea</span>
+                          <span class="username" id="usernameTitle" >Tayler Dellandrea</span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
@@ -130,7 +132,7 @@
 				  <div class="panel-body">
 					  <div class="btn-group">
 						  <button class="btn btn-white" type="button">Name: </button>
-						  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">Select A Patient <span class="caret"></span></button>
+						  <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button" id = "SelectButton">Select A Patient <span class="caret"></span></button>
 						  <ul role="menu" class="dropdown-menu" id="NameSelection">
 						  </ul>
 					  </div><!-- /btn-group -->
@@ -153,21 +155,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="gradeA">
-                                    <td>Drug 1</td>
-                                    <td>15</td>
-                                    <td>2013-10-01</td>
-                                </tr>
-                                <tr class="gradeA">
-                                    <td>Drug 2</td>
-                                    <td>123</td>
-                                    <td>2013-11-15</td>
-                                </tr>
-                                <tr class="gradeU">
-                                    <td>Drug 3</td>
-                                    <td>1</td>
-                                    <td>2014-01-18</td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -184,9 +171,21 @@
                           <div class="clearfix">
                               <div class="btn-group">
                                   <button id="editable-sample_new" class="btn green" onclick="javascript:AddDispenseRow();">
-                                      Add New Drug <i class="icon-plus"></i>
+                                      Add Drug <i class="icon-plus"></i>
                                   </button>
                               </div>
+                              <div class="form-group">
+            <b></br>
+            <label class="col-sm-2 control-label col-lg-2" for="inputSuccess">Select Drug</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" placeholder="Type Drug Name To Search" id="pillQueryText" autofocus onkeyup="javascript:PillAutocomplete(document.getElementById('pillQueryText').value);">
+
+              <select multiple class="form-control" id="PatientAutocompleteSelect">
+                <option>Start Typing Drug Name</option>
+              </select>
+            </b></br>
+            </div>
+          </div>
 							  <br></br>
                           </div>
                           <div class="space1"></div>
@@ -200,18 +199,12 @@
                               </tr>
                               </thead>
                               <tbody>
-                              <tr class="">
-                                  <td>Drug 1</td>
-                                  <td>10</td>
-                                  <td><a class="edit" href="javascript:;">Edit</a></td>
-                                  <td><a class="delete" href="javascript:;">Delete</a></td>
-                              </tr>
                               </tbody>
                           </table>
                       </div>
 				  <div class="pull-right">
 					  <div class="btn-group">
-						  <a class="btn btn-lg btn-shadow btn-success" href="dispensing.html">Accept and Dispense</a>
+						  <a class="btn btn-lg btn-shadow btn-success" onclick="javascript:DispenseClicked();">Accept and Dispense</a>
 					  </div>
 				  </div>
 				  </div>
@@ -253,10 +246,11 @@
 	<!--script for this page-->
   <script src="../FillPrescription.js"></script>
   <script src="../Patient.js"></script>
-  <script src="../Inventory.js"></script>
-  <!--<script src="js/count.js"></script>-->
   <script src="js/dropdownUpdate.js"></script>
 	<script src="js/editable-table.js"></script>
+
+  <script src="js/count.js"></script>
+  <script src="../Arduino.js"></script>
 
 	<!-- END JAVASCRIPTS -->
 	<script>
@@ -286,6 +280,7 @@
            */
 
            GetListOfPatients();
+           PillAutocomplete();
 
           var nCloneTh = document.createElement( 'th' );
           var nCloneTd = document.createElement( 'td' );

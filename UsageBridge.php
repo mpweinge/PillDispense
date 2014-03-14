@@ -89,25 +89,22 @@ else if (isset($_GET['QueryByPill']))
 {
 	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
 
-	$query = "SELECT * FROM " . $PillTableName . " WHERE name='" . $_GET['name'] . "'";
+	$query = "SELECT * FROM UsageTable WHERE PillName='" . $_GET['pillname'] . "'";
 
-	$row = mysqli_fetch_assoc($results);
-
-	if ($row)
+	$results = mysqli_query($con, $query);
+	
+	if ($results)
 	{
-		$PillID = $row['id'];
-
-		$query = "SELECT * FROM " . $UsageTableName . " WHERE PillID='" . $PillID . "'";
-		$results = mysqli_query($con, $query);
-		if ($results)
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
 		{
-			$LongData = array();
-			while ($row = $results->fetch_assoc())
-			{
-				array_push($LongData, $row);
-			}
-			echo json_encode($LongData);
+			array_push($LongData, $row);
 		}
+		$RetData = array();
+		$RetData['count'] = count($LongData);
+		$RetData['name'] = $_GET['pillname'];
+
+		echo json_encode($RetData);
 	}
 }
 else if (isset($_GET['QueryByPatient']))
@@ -187,6 +184,37 @@ else if (isset($_GET['QueryAll']))
 	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
 
 	$query = "SELECT * FROM " . $UsageTableName;
+
+	$results = mysqli_query($con, $query);
+
+	if ($results)
+	{
+		$LongData = array();
+		while ($row = $results->fetch_assoc())
+		{
+			array_push($LongData, $row);
+		}
+		echo json_encode($LongData);
+	}
+}
+else if (isset($_GET['NewUsage']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+	$query = "INSERT INTO UsageTable(PharmacistID, PillName, ChangeInCount, Patient, Currdate) VALUES("
+	 . $_GET['pharmacistID'] . ",'"
+	 . $_GET['pillname'] . "',"
+	 . $_GET['changeInCount'] . ",'"
+	 . $_GET['patient'] . "', NOW() )";
+
+	echo $query;
+
+	mysqli_query($con, $query);
+}
+else if (isset($_GET['GetUniquePills']))
+{
+	$con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+	
+	$query = "SELECT DISTINCT PillName FROM UsageTable";
 
 	$results = mysqli_query($con, $query);
 

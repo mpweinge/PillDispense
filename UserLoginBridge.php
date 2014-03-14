@@ -116,8 +116,19 @@ else if (isset($_GET['Register']))
     if(count($err))
     {
         $_SESSION['msg']['reg-err'] = implode('<br />',$err);
+        print_r($err);
     }
-    print_r($err);
     exit;
+}
+else if (isset($_GET['GetEmail']))
+{
+    $con = mysqli_connect($DatabaseAddress, $MySQLUser, $DatabasePassword, $DatabaseID);
+    $query = "SELECT * FROM Users WHERE username='" . $_GET['username'] . "'";
+
+    $result = mysqli_query($con, $query);
+
+    $row = $result->fetch_assoc();
+
+    echo $row['email'];
 }
 ?>

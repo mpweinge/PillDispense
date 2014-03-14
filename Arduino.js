@@ -1,9 +1,9 @@
-function SendStringToArduino(message)
+function SendStringToArduino(number)
 {
 	$.ajax({
             type: "GET",
-            url: "Arduino.php",
-            data:{SendText:"True", message: message},
+            url: "../Arduino.php",
+            data:{SendText:"True", number: number},
             success: function(msg)
             {
               alert(msg);
@@ -19,7 +19,7 @@ function DispensePills(name, number, PharmID)
 {
   $.ajax({
             type: "GET",
-            url: "Arduino.php",
+            url: "../Arduino.php",
             data:{SendText:"True", name: name, number:number},
             success: function(msg)
             {
@@ -33,7 +33,7 @@ function DispensePills(name, number, PharmID)
 
   $.ajax({
             type: "GET",
-            url: "UsageBridge.php",
+            url: "../UsageBridge.php",
             data:{Dispense:"True", PharmID:PharmID, name:name, number:number},
             success: function(msg)
             {
@@ -50,7 +50,7 @@ function StockInventory(name, number, pharmID)
 {
   $.ajax({
             type: "GET",
-            url: "UsageBridge.php",
+            url: "../UsageBridge.php",
             data:{Stock:"True", PharmID:PharmID, name:name, number:number},
             success: function(msg)
             {

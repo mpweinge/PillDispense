@@ -104,38 +104,37 @@ function DrawDayGraphs()
 {
 	( function () {
           var overCircle = false;
-          var tt = document.createElement('div'),
+          /*var tt = document.createElement('div'),
       leftOffset = -(~~$('html').css('padding-left').replace('px', '') + ~~$('body').css('margin-left').replace('px', ''));
       topOffset = -32;
       tt.className = 'ex-tooltip';
       document.body.appendChild(tt);
-
+*/
       var data = {
         "xScale": "time",
         "yScale": "linear",
         "main": [
           {
-            "className": ".pizza",
             "data": [
               {
                 "x": "2012-11-05",
-                "y": MondayUsage
+                "y": +MondayUsage
               },
               {
                 "x": "2012-11-06",
-                "y": TuesdayUsage
+                "y": +TuesdayUsage
               },
               {
                 "x": "2012-11-07",
-                "y": WednesdayUsage
+                "y": +WednesdayUsage
               },
               {
                 "x": "2012-11-08",
-                "y": ThursdayUsage
+                "y": +ThursdayUsage
               },
               {
                 "x": "2012-11-09",
-                "y": FridayUsage
+                "y": +FridayUsage 
               }
             ]
           }
@@ -170,43 +169,43 @@ function DrawHourGraphs()
             "data": [
               {
                 "x": "2012-11-05 09",
-                "y": Usage9
+                "y": +Usage9
               },
               {
                 "x": "2012-11-05 10",
-                "y": Usage10
+                "y": +Usage10
               },
               {
                 "x": "2012-11-05 11",
-                "y": Usage11
+                "y": +Usage11
               },
               {
                 "x": "2012-11-05 12",
-                "y": Usage12
+                "y": +Usage12
               },
               {
                 "x": "2012-11-05 13",
-                "y": Usage13
+                "y": +Usage13
               },
               {
                 "x": "2012-11-05 14",
-                "y": Usage14
+                "y": +Usage14
               },
               {
                 "x": "2012-11-05 15",
-                "y": Usage15
+                "y": +Usage15
               },
               {
                 "x": "2012-11-05 16",
-                "y": Usage16
+                "y": +Usage16
               },
               {
                 "x": "2012-11-05 17",
-                "y": Usage17
+                "y": +Usage17
               },
               {
                 "x": "2012-11-05 18",
-                "y": Usage18
+                "y": +Usage18
               },
             ]
           }

@@ -204,5 +204,133 @@
 	<!--script for this page-->
 	<script src="js/count.js"></script>
 
+  <script>
+  $(document).ready( function()
+    {
+      var fridayUsage = -1;
+      var thursdayUsage = -1;
+      var wednesdayUsage = -1;
+      var tuesdayUsage = -1;
+      var mondayUsage = -1;
+      $.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{ QueryByDay:"True", DayQuery: 6},
+            success: function(msg)
+            {
+              fridayUsage = msg;
+              countUp(msg);
+
+              if ((mondayUsage != -1) &&
+                  (tuesdayUsage != -1) &&
+                  (wednesdayUsage != -1) &&
+                  (thursdayUsage != -1) &&
+                  (fridayUsage != -1) )
+              {
+                countUp2(+fridayUsage + +wednesdayUsage );
+                countUp3(+fridayUsage + +thursdayUsage + +wednesdayUsage + +tuesdayUsage + +mondayUsage);
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+
+            }
+          });
+
+      $.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{ QueryByDay:"True", DayQuery: 5},
+            success: function(msg)
+            {
+              thursdayUsage = msg;
+              if ((mondayUsage != -1) &&
+                  (tuesdayUsage != -1) &&
+                  (wednesdayUsage != -1) &&
+                  (thursdayUsage != -1) &&
+                  (fridayUsage != -1) )
+              {
+                countUp2(+fridayUsage + +wednesdayUsage );
+                countUp3(+fridayUsage + +thursdayUsage + +wednesdayUsage + +tuesdayUsage + +mondayUsage);
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+
+            }
+          });
+
+      $.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{ QueryByDay:"True", DayQuery: 4},
+            success: function(msg)
+            {
+              wednesdayUsage = msg;
+              if ((mondayUsage != -1) &&
+                  (tuesdayUsage != -1) &&
+                  (wednesdayUsage != -1) &&
+                  (thursdayUsage != -1) &&
+                  (fridayUsage != -1) )
+              {
+                countUp2(+fridayUsage + +wednesdayUsage );
+                countUp3(+fridayUsage + +thursdayUsage + +wednesdayUsage + +tuesdayUsage + +mondayUsage);
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+
+            }
+          });
+
+      $.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{ QueryByDay:"True", DayQuery: 3},
+            success: function(msg)
+            {
+              tuesdayUsage = msg;
+              if ((mondayUsage != -1) &&
+                  (tuesdayUsage != -1) &&
+                  (wednesdayUsage != -1) &&
+                  (thursdayUsage != -1) &&
+                  (fridayUsage != -1) )
+              {
+                countUp2(+fridayUsage + +wednesdayUsage );
+                countUp3(+fridayUsage + +thursdayUsage + +wednesdayUsage + +tuesdayUsage + +mondayUsage);
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+
+            }
+          });
+
+      $.ajax({
+            type: "GET",
+            url: "../UsageBridge.php",
+            data:{ QueryByDay:"True", DayQuery: 2},
+            success: function(msg)
+            {
+              mondayUsage = msg;
+              if ((mondayUsage != -1) &&
+                  (tuesdayUsage != -1) &&
+                  (wednesdayUsage != -1) &&
+                  (thursdayUsage != -1) &&
+                  (fridayUsage != -1) )
+              {
+                countUp2(+fridayUsage + +wednesdayUsage );
+                countUp3(+fridayUsage + +thursdayUsage + +wednesdayUsage + +tuesdayUsage + +mondayUsage);
+              }
+            },
+            error: function(jqXHR, textStatus, errorThrown) 
+            {
+
+            }
+          });
+    }
+  );
+  </script>
+
   </body>
 </html>

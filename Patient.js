@@ -21,14 +21,15 @@ function CreatePatient(name, address, city, province, postalcode, phonenumber, e
             success: function(msg)
             {
               console.log(msg);
-              if (msg == "")
-              {
+              //if (msg == "")
+              //{
                 //Created a patient successfully
-              }
-              else
-              {
-                alert(msg);
-              }
+                setTimeout( (function() {window.location = 'home.html'; })(), 1000);
+              //}
+              //else
+              //{
+              //  alert(msg);
+              //}
             },
             error: function(jqXHR, textStatus, errorThrown) 
             {
@@ -54,6 +55,8 @@ function UpdatePatient(name, address, city, province, postalcode, phonenumber, e
       document.getElementById('insurancetext').value);
 
     nameEdited = false;
+
+    //setTimeout( (function() {window.location = 'home.html'; } )(), 2000);
   }
   else
   {
@@ -74,14 +77,11 @@ function UpdatePatient(name, address, city, province, postalcode, phonenumber, e
             success: function(msg)
             {
               console.log(msg);
-              if (msg == "")
-              {
+              //if (msg == "")
+              //{
                 //Created a patient successfully
-              }
-              else
-              {
-                alert(msg);
-              }
+                window.location = 'home.html';
+              //}
             },
             error: function(jqXHR, textStatus, errorThrown) 
             {
@@ -89,6 +89,8 @@ function UpdatePatient(name, address, city, province, postalcode, phonenumber, e
               console.log(msg);
             }
            });
+
+    //setTimeout( (function() {window.location = 'home.html'; } )(), 2000);
   }
 }
 
@@ -102,7 +104,7 @@ function DeletePatient(name)
                   },
             success: function(msg)
             {
-              
+              console.log(msg);
             },
             error: function(jqXHR, textStatus, errorThrown) 
             {
@@ -110,6 +112,12 @@ function DeletePatient(name)
               console.log(msg);
             }
            });
+}
+
+function SelectionChanged()
+{
+  var SelectDrop = document.getElementById('PatientAutocompleteSelect');
+  PatientSelected(SelectDrop.options[SelectDrop.selectedIndex].value);
 }
 
 function PatientSelected(name)
@@ -186,6 +194,8 @@ function PatientAutocomplete()
 
 function FetchPatientDrugList(name)
 {
+
+  document.getElementById('SelectButton').innerHTML = name + " " + '<span class="caret"></span>';
 $.ajax({
             type: "GET",
             url: "../UsageBridge.php",

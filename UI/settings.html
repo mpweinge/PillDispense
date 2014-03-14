@@ -8,7 +8,7 @@
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Fill Prescription</title>
+    <title>Settings</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <span class="username">Tayler Dellandrea</span>
+                          <span class="username" id="usernameTitle" >Tayler Dellandrea</span>
                           <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu extended logout">
@@ -127,8 +127,38 @@
 				  <header class="panel-heading">
 					  <b>Sync Machines</b>
 				  </header>
-				  <div class="panel-body">sync some machines somehow, error history?
-				  </div>
+				  <div class="space1"></div>
+                          <table class="table table-striped table-hover table-bordered" id="inventoryTable">
+                                <thead>
+                                <tr>
+                                    <th>Machine ID</th>
+                                    <th>Drug Name</th>
+                                    <th>Amount Left</th>
+                                    <th>Status</th>
+                                </tr>
+                                <tr>
+                                    <td>1</th>
+                                    <td>Generic White Pill</th>
+                                    <td>Enough</th>
+                                    <td>GOOD TO GO</th>
+                                </tr>
+                                <tr>
+                                    <td>2</th>
+                                    <td>The Blue Pill</th>
+                                    <td>-1</th>
+                                    <td>OUT OF ORDER</th>
+                                </tr>
+                                <tr>
+                                    <td>3</th>
+                                    <td>Horse Tranquilizer</th>
+                                    <td>5000</th>
+                                    <td>JAMMED</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
 			  </section>
 			  <!--Select Patient Ended-->
               <!-- Prescription Fill Table End-->  
