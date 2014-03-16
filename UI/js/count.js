@@ -1,6 +1,6 @@
 function countUp(count)
 {
-    var div_by = 100,
+    var div_by = 1,
         speed = Math.round(count / div_by),
         $display = $('.count'),
         run_count = 1,
@@ -21,7 +21,7 @@ function countUp(count)
 
 function countUp2(count)
 {
-    var div_by = 10,
+    var div_by = 1,
         speed = Math.round(count / div_by),
         $display = $('.count2'),
         run_count = 1,
@@ -44,7 +44,7 @@ function countUp2(count)
 
 function countUp3(count)
 {
-    var div_by = 10,
+    var div_by = 1,
         speed = Math.round(count / div_by),
         $display = $('.count3'),
         run_count = 1,

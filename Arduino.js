@@ -3,10 +3,15 @@ function SendStringToArduino(number)
 	$.ajax({
             type: "GET",
             url: "../Arduino.php",
-            data:{SendText:"True", number: number},
+            data:
+            {
+              SendText:true, 
+              number: number
+            },
             success: function(msg)
             {
-              alert(msg);
+              //alert(msg);
+              window.location = "home.html";
             },
             error: function(jqXHR, textStatus, errorThrown) 
             {

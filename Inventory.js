@@ -404,7 +404,7 @@ function DispenseClicked()
   {
     var currCells = tableRows[i].getElementsByTagName('td');
 
-    if (!(jQuery.isNumeric(currCells[1])))
+    if (!(jQuery.isNumeric(currCells[1].innerHTML)))
     {
       alert("Numeric pillcount only please.");
       return;
@@ -421,7 +421,6 @@ function LoadDispense(number)
 {
   //Issue dispense command to Arduino
   SendStringToArduino(number);
-  window.location = "home.html";
 }
 
 function AddUsage(pharmacistID, pillName, changeInCount, PatientName, lastPill)
