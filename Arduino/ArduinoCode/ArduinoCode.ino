@@ -5,6 +5,7 @@
 
 #include "Display.h"
 #include "Motor.h"
+#include "GlobalVariables.h"
 
 //For help see http://scuola.arduino.cc/courses/lessons/view/zzdeJ3m
 //And http://arduino.cc/en/Tutorial/Bridge
@@ -15,19 +16,8 @@ String msg;
 int led = 13;
 int state = 0;
 
-unsigned long millisTime = 0;
-
-void GreenButton()
-{
-  if ((millis() - millisTime) < 500)
-    return;
-    
-  millisTime = millis();
-  PrintNumber(state);
-  state++;
-  
-  OrderMade(10);
-}
+unsigned long millisTime_Green = 0;
+unsigned long millisTime_Red = 0;
 
 void setup() {
   // put your setup code here, to run once:
@@ -43,7 +33,37 @@ void setup() {
   MotorSetup();
   DisplaySetup();
   
-  attachInterrupt(0, GreenButton, RISING);
+  attachInterrupt(1, GreenButton, RISING);
+  attachInterrupt(0, RedButton, RISING);
+  //clearDisplay();
+}
+
+void GreenButton()
+{
+  if ((millis() - millisTime_Green) < 500)
+    return;
+    
+  millisTime_Green = millis();
+  MemTestRunning = 1;
+  //PrintNumber(1000);
+  /*PrintNumber(state);
+  state++;
+  
+  OrderMade(10);*/
+}
+
+void RedButton()
+{
+  if ((millis() - millisTime_Red) < 500)
+    return;
+    
+  millisTime_Red = millis();
+  MemTestRunning = 0;
+  //PrintNumber(1001);
+  /*PrintNumber(state);
+  state++;
+  
+  OrderMade(10);*/
 }
 
 void loop() {
@@ -52,21 +72,15 @@ void loop() {
 
   if (client) 
   {
-    //String command = client.readStringUntil('/');
-   // if (command == "HIGH") {
+     String command = client.readStringUntil('/');
+     /*Serial.print(command);
      client.println("COMING FROM ARDUINO");
-     /*client.println("HTTP/1.1 200 OK");
-          client.println("Content-Type: text/html");
-          client.println("Connnection: close");
-          client.println();
-          client.println("<!DOCTYPE HTML>");
-          client.println("<html><body>HELLO</body></html>");*/
-   // }
-     Serial.print("RECEIVED CLIENT ACTION");
+     Serial.print("RECEIVED CLIENT ACTION");*/
      state++;
-     OrderMade(10);
+     
+     OrderMade(command.toInt());
   
-     delay(10000);
+     delay(2000);
      if (state == 1)
      {
        digitalWrite(led, HIGH);
@@ -78,9 +92,15 @@ void loop() {
      }
     client.stop();
   }
+  
+  if(MemTestRunning == 1)
+  {
+    MotorTestMode(10);
+  }
+  
 }
 
 void OrderMade(int Number)
 {
-  MotorRotateLoop(Number);
+  MotorTestMode(Number);
 }
